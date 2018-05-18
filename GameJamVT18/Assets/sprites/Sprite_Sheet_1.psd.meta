@@ -10,6 +10,9 @@ TextureImporter:
     21300006: Ground_Left_Mid
     21300008: Ground_Mid_Mid
     21300010: Ground_Right_Mid
+    21300012: Ground_Left_Bot
+    21300014: Ground_Mid_Bot
+    21300016: Ground_Right_Bot
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -161,7 +164,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,6 +175,48 @@ TextureImporter:
         serializedVersion: 2
         x: 400
         y: 1648
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Left_Bot
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1448
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Mid_Bot
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1448
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ground_Right_Bot
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 1448
         width: 200
         height: 200
       alignment: 0

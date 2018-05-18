@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public Transform groundCheck;
+    //public Transform groundCheck;
     public LayerMask GroundLayer;
 
     private Rigidbody2D rb2d;
     private float horizontalInput;
-    private float movementSpeed = 1.0f;
-    private float verticalInput;
-    private float jumpPower = 10.0f;
+    private float movementSpeed = 30.0f;
+    private float jumpInput;
+    private float jumpPower = 7f;
     private bool grounded;
 
 	// Use this for initialization
@@ -24,17 +24,16 @@ public class PlayerMovement : MonoBehaviour {
         horizontalInput = Input.GetAxis("Horizontal");
         //transform.Translate(new Vector3(horizontalInput, 0, 0) * movementSpeed * Time.deltaTime, Camera.main.transform);
 
-        //grounded = Physics2D.OverlapPoint(groundCheck.position, GroundLayer);
-        grounded = true;
+        grounded = rb2d.IsTouchingLayers(GroundLayer);
+        //grounded = true;
 
-        if(grounded && Input.GetKeyDown(KeyCode.Space))
+
+        if (grounded && Input.GetAxis("Jump") > 0.0f && rb2d.velocity.y <= 0.0f)
         {
-            verticalInput = 1.0f;
+            rb2d.velocity = new Vector3(rb2d.velocity.x, 0.0f, 0.0f);
+            rb2d.AddForce(new Vector3(0.0f, jumpPower, 0.0f), ForceMode2D.Impulse);
         }
 
-        Vector3 movement = new Vector3(horizontalInput * movementSpeed, verticalInput * jumpPower, 0);
-
-        rb2d.AddForce(movement * Time.deltaTime);
-
+        rb2d.AddForce(new Vector3(horizontalInput * movementSpeed * (grounded ? 1.0f:0.3f) / (1.0f + Mathf.Abs(rb2d.velocity.x)), 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
 	}
 }

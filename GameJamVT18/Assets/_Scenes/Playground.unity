@@ -248,6 +248,7 @@ MonoBehaviour:
   GroundLayer:
     serializedVersion: 2
     m_Bits: 256
+  hooksprite: {fileID: 21300022, guid: 5d8c04c6c335123438c10e5d7163214f, type: 3}
 --- !u!1 &661590436
 GameObject:
   m_ObjectHideFlags: 0

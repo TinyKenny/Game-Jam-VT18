@@ -9,9 +9,9 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private float horizontalInput;
-    private float movementSpeed = 30.0f;
+    private float movementSpeed = 50.0f;
     private float jumpInput;
-    private float jumpPower = 7f;
+    private float jumpPower = 7.0f;
     private bool grounded;
 
 	// Use this for initialization
@@ -35,5 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         rb2d.AddForce(new Vector3(horizontalInput * movementSpeed * (grounded ? 1.0f:0.3f) / (1.0f + Mathf.Abs(rb2d.velocity.x)), 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
+
+        
 	}
 }

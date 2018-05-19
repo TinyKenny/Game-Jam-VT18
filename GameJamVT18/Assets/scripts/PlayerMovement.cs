@@ -42,7 +42,8 @@ public class PlayerMovement : MonoBehaviour {
             if (hook == null)
             {
                 Vector3 mouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D rayHit = Physics2D.Raycast(transform.position, mouseLocation, Mathf.Infinity, GroundLayer);
+                mouseLocation = new Vector3(mouseLocation.x, mouseLocation.y, 0.0f);
+                RaycastHit2D rayHit = Physics2D.Raycast(transform.position, mouseLocation - transform.position, Mathf.Infinity, GroundLayer);
                 hook = new GameObject();
                 hook.transform.position = rayHit.point;
                 hook.AddComponent<SpriteRenderer>();

@@ -36,8 +36,6 @@ public class PlayerMovement : MonoBehaviour {
         horizontalInput = Input.GetAxis("Horizontal");
 
         grounded = rb2d.IsTouchingLayers(GroundLayer);
-        //grounded = true;
-
 
         if (grounded && Input.GetAxis("Jump") > 0.0f && rb2d.velocity.y <= 0.01f)
         {
@@ -46,6 +44,8 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         rb2d.AddForce(new Vector3(horizontalInput * movementSpeed * (grounded ? 1.0f:0.2f) / (1.0f + Mathf.Abs(rb2d.velocity.x)), 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
+
+        //Debug.Log(string.Format("X: {0} Y: {1}", Input.GetAxis("Right Stick X"), Input.GetAxis("Right Stick Y")));
 
         if (notHook)
         {
@@ -87,9 +87,14 @@ public class PlayerMovement : MonoBehaviour {
         if (hook != null)
         {
             Debug.DrawLine(transform.position, hook.transform.position, Color.red);
+            //Debug.Log(Physics2D.Raycast(transform.position, hook.transform.position-transform.position, Vector3.Distance(transform.position, hook.transform.position) * 0.99f, GroundLayer).collider);
             if (Input.GetAxis("Fire2") != 0.0f)
             {
                 GetComponent<DistanceJoint2D>().distance += Time.deltaTime * Input.GetAxis("Fire2");
+            }
+            if (Physics2D.Raycast(transform.position, hook.transform.position - transform.position, Vector3.Distance(transform.position, hook.transform.position) * 0.99f, GroundLayer).collider != null)
+            {
+                unGrapple();
             }
         }
 

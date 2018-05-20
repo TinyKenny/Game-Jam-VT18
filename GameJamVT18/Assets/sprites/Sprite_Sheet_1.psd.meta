@@ -20,6 +20,7 @@ TextureImporter:
     21300026: Ground_Mid_Standalone
     21300028: Ground_Right_Standalone
     21300030: Spike
+    21300032: Goal_Flag
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -310,6 +311,20 @@ TextureImporter:
         y: 1848
         width: 200
         height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Goal_Flag
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1448
+        width: 200
+        height: 400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

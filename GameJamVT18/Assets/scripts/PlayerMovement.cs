@@ -16,19 +16,9 @@ public class PlayerMovement : MonoBehaviour {
     private bool notHook = true;
     private GameObject hook;
 
-    private string[] controllers;
-
-
 	// Use this for initialization
 	void Start () {
         rb2d = GetComponent<Rigidbody2D>();
-        //Debug.Log(Input.GetJoystickNames());
-        string[] joySticks = Input.GetJoystickNames();
-        Debug.Log(joySticks.Length);
-        for (int i = 0; i < joySticks.Length; i++)
-        {
-            Debug.Log(joySticks[i]);
-        }
 	}
 	
 	// Update is called once per frame
@@ -43,7 +33,8 @@ public class PlayerMovement : MonoBehaviour {
             rb2d.AddForce(new Vector3(0.0f, jumpPower, 0.0f), ForceMode2D.Impulse);
         }
 
-        rb2d.AddForce(new Vector3(horizontalInput * movementSpeed * (grounded ? 1.0f:0.2f) / (1.0f + Mathf.Abs(rb2d.velocity.x)), 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
+        float forceX = horizontalInput * movementSpeed * getSpeedModifierByState()/ (1.0f + Mathf.Abs(rb2d.velocity.x));
+        rb2d.AddForce(new Vector3(forceX, 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
 
         //Debug.Log(string.Format("X: {0} Y: {1}", Input.GetAxis("Right Stick X"), Input.GetAxis("Right Stick Y")));
 
@@ -87,7 +78,7 @@ public class PlayerMovement : MonoBehaviour {
         if (hook != null)
         {
             Debug.DrawLine(transform.position, hook.transform.position, Color.red);
-            //Debug.Log(Physics2D.Raycast(transform.position, hook.transform.position-transform.position, Vector3.Distance(transform.position, hook.transform.position) * 0.99f, GroundLayer).collider);
+            renderGrappleLine();
             if (Input.GetAxis("Fire2") != 0.0f)
             {
                 GetComponent<DistanceJoint2D>().distance += Time.deltaTime * Input.GetAxis("Fire2");
@@ -102,8 +93,6 @@ public class PlayerMovement : MonoBehaviour {
         {
             notHook = true;
         }
-
-        //Debug.Log(Input.GetAxis("Mouse X"));
 	}
 
     void grapple(Vector3 direction)
@@ -114,11 +103,43 @@ public class PlayerMovement : MonoBehaviour {
 
         GetComponent<DistanceJoint2D>().connectedAnchor = hook.transform.position;
         GetComponent<DistanceJoint2D>().enabled = true;
+        renderGrappleLine();
+        GetComponent<LineRenderer>().enabled = true;
     }
 
     void unGrapple()
     {
         GetComponent<DistanceJoint2D>().enabled = false;
+        GetComponent<LineRenderer>().enabled = false;
         Destroy(hook);
+    }
+
+    void renderGrappleLine()
+    {
+        GetComponent<LineRenderer>().SetPosition(0, transform.position);
+        GetComponent<LineRenderer>().SetPosition(1, hook.transform.position);
+    }
+
+    float getSpeedModifierByState()
+    {
+        if (!grounded)
+        {
+            if (hook != null)
+            {
+                return 0.1f;
+            }
+            return 0.2f;
+        }
+        return 1.0f;
+    }
+
+    void listJoysticks()
+    {
+        string[] joySticks = Input.GetJoystickNames();
+        Debug.Log(joySticks.Length);
+        for (int i = 0; i < joySticks.Length; i++)
+        {
+            Debug.Log(joySticks[i]);
+        }
     }
 }

@@ -8,6 +8,8 @@ public class GameOverSceneScript : MonoBehaviour {
 
     public Text promptText;
 
+    public static int currentRun = 1;
+
     private float timer = 3.0f;
 
 	// Use this for initialization
@@ -19,7 +21,34 @@ public class GameOverSceneScript : MonoBehaviour {
 	void Update () {
 		if (Input.anyKeyDown && timer <= 0.0f)
         {
-            SceneManager.LoadScene(0);
+            Debug.Log(currentRun);
+            if (currentRun == 0)
+            {
+                currentRun = 1;
+                Debug.Log("paw!");
+                SceneManager.LoadScene(0);
+            }
+            else if (currentRun == 1)
+            {
+                currentRun = 2;
+                Debug.Log("pew!");
+                SceneManager.LoadScene(0);
+            }
+            else if (currentRun == 2)
+            {
+                currentRun = 0;
+                Debug.Log("pow!");
+                SceneManager.LoadScene(0);
+                //GameController.gameControllerInstance.gridTransform.Rotate(new Vector3(0.0f, 0.0f, 0.1f));
+            }
+            /*
+            else
+            {
+                currentRun += 1;
+            }
+            */
+            
+            //SceneManager.LoadScene(0);
         }
         if (!(timer <= 0.0f))
         {

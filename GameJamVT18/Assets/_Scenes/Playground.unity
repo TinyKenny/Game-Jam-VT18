@@ -320,6 +320,11 @@ Prefab:
       propertyPath: cm
       value: 
       objectReference: {fileID: 978083866}
+    - target: {fileID: 114823523673851632, guid: ec8d35a1e70327d48b252b8bdd0c27ea,
+        type: 2}
+      propertyPath: gridTransform
+      value: 
+      objectReference: {fileID: 1852813501}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ec8d35a1e70327d48b252b8bdd0c27ea, type: 2}
   m_IsPrefabParent: 0

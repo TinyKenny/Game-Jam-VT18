@@ -8,7 +8,7 @@ public class GameOverSceneScript : MonoBehaviour {
 
     public Text promptText;
 
-    public static int currentRun = 1;
+    public static int currentRun = 0;
 
     private float timer = 3.0f;
 

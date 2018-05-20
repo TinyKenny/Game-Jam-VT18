@@ -19,6 +19,7 @@ TextureImporter:
     21300024: Ground_Left_Standalone
     21300026: Ground_Mid_Standalone
     21300028: Ground_Right_Standalone
+    21300030: Spike
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -268,7 +269,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -282,7 +283,7 @@ TextureImporter:
         width: 200
         height: 200
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -292,6 +293,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1000
+        y: 1848
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Spike
+      rect:
+        serializedVersion: 2
+        x: 1448
         y: 1848
         width: 200
         height: 200

@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     public static GameController gameControllerInstance;
+    private static float rotation = 0.0f;
     public Transform gridTransform;
 
 
@@ -13,8 +14,9 @@ public class GameController : MonoBehaviour {
         gameControllerInstance = this;
         if (GameOverSceneScript.currentRun == 0)
         {
-            gridTransform.Rotate(new Vector3(0.0f, 0.0f, 90.0f));
+            rotation += 90.0f;
         }
+        gridTransform.Rotate(new Vector3(0.0f, 0.0f, rotation));
 	}
 	
 	// Update is called once per frame

@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1973897579044860, guid: 4ff04cad3ada86f4a9f8e4d0e09db9f6, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ff04cad3ada86f4a9f8e4d0e09db9f6, type: 2}
   m_IsPrefabParent: 0
@@ -58632,6 +58636,7 @@ GameObject:
   - component: {fileID: 1444705946}
   - component: {fileID: 1444705945}
   - component: {fileID: 1444705944}
+  - component: {fileID: 1444705949}
   m_Layer: 0
   m_Name: Hazards
   m_TagString: Untagged
@@ -60942,6 +60947,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1444705949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444705942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730f2870cd3a91d41b7c517769768f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 1
 --- !u!1 &1463678265
 GameObject:
   m_ObjectHideFlags: 0
@@ -60950,7 +60967,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1463678267}
-  - component: {fileID: 1463678268}
   - component: {fileID: 1463678266}
   m_Layer: 0
   m_Name: GameController
@@ -60984,17 +61000,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1463678268
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1463678265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc4a12b1e6a4c414185e35c83c9fd172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1483904272
 GameObject:
   m_ObjectHideFlags: 3
@@ -61157,6 +61162,7 @@ GameObject:
   - component: {fileID: 1854129653}
   - component: {fileID: 1854129652}
   - component: {fileID: 1854129651}
+  - component: {fileID: 1854129656}
   m_Layer: 0
   m_Name: Goal
   m_TagString: Untagged
@@ -61199,7 +61205,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -61361,3 +61367,15 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1854129656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1854129649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730f2870cd3a91d41b7c517769768f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: 2

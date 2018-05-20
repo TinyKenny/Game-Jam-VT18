@@ -93,6 +93,12 @@ public class PlayerMovement : MonoBehaviour {
         {
             notHook = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            unGrapple();
+            rb2d.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+        }
 	}
 
     void grapple(Vector3 direction)

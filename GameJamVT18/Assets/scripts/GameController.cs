@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour {
         gameControllerInstance = this;
         if (GameOverSceneScript.currentRun == 2)
         {
-            rotation += 90.0f;
+            rotation -= 90.0f;
             GameOverSceneScript.currentRun = 0;
         }
         gridTransform.Rotate(new Vector3(0.0f, 0.0f, rotation));

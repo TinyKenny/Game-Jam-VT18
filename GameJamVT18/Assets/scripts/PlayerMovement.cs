@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Rigidbody2D rb2d;
     private float horizontalInput;
-    private float movementSpeed = 50.0f;
+    private float movementSpeed = 60.0f;
     private float jumpInput;
     private float jumpPower = 7.0f;
     private bool grounded;
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
         float forceX = horizontalInput * movementSpeed * getSpeedModifierByState()/ (1.0f + Mathf.Abs(rb2d.velocity.x));
         rb2d.AddForce(new Vector3(forceX, 0.0f, 0.0f) * Time.deltaTime, ForceMode2D.Impulse);
 
-        //Debug.Log(string.Format("X: {0} Y: {1}", Input.GetAxis("Right Stick X"), Input.GetAxis("Right Stick Y")));
+        Debug.Log(string.Format("X: {0} Y: {1}", Input.GetAxis("Right Stick X"), Input.GetAxis("Right Stick Y")));
 
         if (notHook)
         {
